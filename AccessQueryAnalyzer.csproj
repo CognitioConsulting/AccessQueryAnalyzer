@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
@@ -143,11 +143,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="QueryForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="QueryControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="QueryForm.Designer.cs">
-      <DependentUpon>QueryForm.cs</DependentUpon>
+    <Compile Include="QueryControl.Designer.cs">
+      <DependentUpon>QueryControl.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryRunner.cs">
       <SubType>Code</SubType>
@@ -167,10 +167,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QueryForm.resx">
-      <DependentUpon>QueryForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="gear.ico" />
