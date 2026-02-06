@@ -170,6 +170,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="gear.ico" />
+    <EmbeddedResource Include="QueryControl.resx">
+      <DependentUpon>QueryControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

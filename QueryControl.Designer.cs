@@ -13,7 +13,7 @@ namespace sliver.AccessQueryAnalyzer
 		private System.Windows.Forms.Button cmdSelectFile;
 		private System.Windows.Forms.Button cmdExecute;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DataGrid dg;
+		private System.Windows.Forms.DataGridView dg;
 		private System.Windows.Forms.StatusBar sb;
 		private System.Windows.Forms.ProgressBar progressBar1;
 
@@ -45,7 +45,7 @@ namespace sliver.AccessQueryAnalyzer
 		{
 			this.txtQuery = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.dg = new System.Windows.Forms.DataGrid();
+			this.dg = new System.Windows.Forms.DataGridView();
 			this.splitter1 = new System.Windows.Forms.Splitter();
 			this.txtFilename = new System.Windows.Forms.TextBox();
 			this.cmdSelectFile = new System.Windows.Forms.Button();
@@ -65,14 +65,14 @@ namespace sliver.AccessQueryAnalyzer
 			this.txtQuery.Name = "txtQuery";
 			this.txtQuery.Size = new System.Drawing.Size(620, 104);
 			this.txtQuery.TabIndex = 0;
-			this.txtQuery.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuery_KeyPress);
 			this.txtQuery.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQuery_KeyDown);
+			this.txtQuery.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuery_KeyPress);
 			// 
 			// panel1
 			// 
-			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-						| System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel1.Controls.Add(this.dg);
 			this.panel1.Controls.Add(this.splitter1);
 			this.panel1.Controls.Add(this.txtQuery);
@@ -83,12 +83,14 @@ namespace sliver.AccessQueryAnalyzer
 			// 
 			// dg
 			// 
-			this.dg.CaptionVisible = false;
-			this.dg.DataMember = "";
+			this.dg.AllowUserToAddRows = false;
+			this.dg.AllowUserToDeleteRows = false;
+			this.dg.ColumnHeadersHeight = 29;
 			this.dg.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dg.HeaderForeColor = System.Drawing.SystemColors.ControlText;
 			this.dg.Location = new System.Drawing.Point(0, 110);
 			this.dg.Name = "dg";
+			this.dg.ReadOnly = true;
+			this.dg.RowHeadersWidth = 51;
 			this.dg.Size = new System.Drawing.Size(620, 247);
 			this.dg.TabIndex = 2;
 			// 
@@ -103,11 +105,11 @@ namespace sliver.AccessQueryAnalyzer
 			// 
 			// txtFilename
 			// 
-			this.txtFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtFilename.Location = new System.Drawing.Point(68, 7);
 			this.txtFilename.Name = "txtFilename";
-			this.txtFilename.Size = new System.Drawing.Size(452, 21);
+			this.txtFilename.Size = new System.Drawing.Size(452, 24);
 			this.txtFilename.TabIndex = 3;
 			// 
 			// cmdSelectFile
@@ -142,8 +144,8 @@ namespace sliver.AccessQueryAnalyzer
 			// 
 			// sb
 			// 
-			this.sb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this.sb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.sb.Dock = System.Windows.Forms.DockStyle.None;
 			this.sb.Location = new System.Drawing.Point(8, 398);
 			this.sb.Name = "sb";
@@ -162,6 +164,7 @@ namespace sliver.AccessQueryAnalyzer
 			// 
 			// QueryControl
 			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.sb);
 			this.Controls.Add(this.label1);
