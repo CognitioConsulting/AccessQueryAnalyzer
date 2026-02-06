@@ -14,5 +14,9 @@ namespace sliver.AccessQueryAnalyzer {
 		void ProgressStep ();
 		void Invoke (System.Delegate method);
 		void Invoke (System.Delegate method, System.Object[] arguments);
+
+		int Id { get; }
+
+		string TabTitle { get; }
 	}
 }

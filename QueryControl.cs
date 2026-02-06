@@ -1,11 +1,13 @@
 namespace sliver.AccessQueryAnalyzer
 {
 	using System;
+	using System.IO;
 	using System.Windows.Forms;
-	using sliver.AccessQueryAnalyzer.Properties;
 
 	public partial class QueryControl : UserControl, IQueryView
 	{
+		public int Id { get; } = 0;
+
 		private bool _handled = false;
 		private delegate void GetQueryStringDelegate(out string queryString);
 
@@ -26,6 +28,8 @@ namespace sliver.AccessQueryAnalyzer
 				Execute_(this, e);
 			}
 		}
+
+		public string TabTitle => (string.IsNullOrWhiteSpace(FileName) ? "Query" : Path.GetFileName(FileName)) + $" ({Id})";
 
 		#endregion
 
@@ -156,22 +160,24 @@ namespace sliver.AccessQueryAnalyzer
 
 		#endregion
 
-		public QueryControl()
+		public QueryControl(int id)
 		{
 			InitializeComponent();
 			cmdExecute.Height = txtFilename.Height;
 			cmdSelectFile.Height = txtFilename.Height;
-			txtFilename.Text = Settings.Default.LastDatabase;
 
-			// Save last database when the control is disposed
-			this.Disposed += QueryControl_Disposed;
+			Id = id;
+
+			txtFilename.Text = Settings.Default.Get("LastDatabase" + Id);
+			txtQuery.Text = Settings.Default.Get("LastQuery" + Id);
 		}
 
-		private void QueryControl_Disposed(object sender, EventArgs e)
+		public void SaveSettings()
 		{
 			try
 			{
-				Settings.Default.LastDatabase = txtFilename.Text;
+				Settings.Default.Set("LastDatabase" + Id, txtFilename.Text);
+				Settings.Default.Set("LastQuery" + Id, txtQuery.Text);
 				Settings.Default.Save();
 			}
 			catch

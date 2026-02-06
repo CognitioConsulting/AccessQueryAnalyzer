@@ -26,9 +26,6 @@ namespace sliver.AccessQueryAnalyzer
 		private ToolStripMenuItem closeTabMenuItem;
 		private ToolStripMenuItem closeOtherTabsMenuItem;
 
-		// Sequential tab counter used for default titles
-		private int nextTabIndex = 1;
-
 		public MainForm()
 		{
 			//
@@ -281,11 +278,12 @@ namespace sliver.AccessQueryAnalyzer
 
 		private void CreateNewTab()
 		{
-			QueryControl qc = new QueryControl();
+			var newTabIndex = GetNextTabIndex();
+			QueryControl qc = new QueryControl(newTabIndex);
 			qc.Dock = DockStyle.Fill;
 			qc.Execute += new EventHandler(this.QueryControl_Execute);
 
-			string title = GetDefaultTabTitle();
+			string title = qc.TabTitle;
 			TabPage page = new TabPage(title);
 			page.Controls.Add(qc);
 
@@ -306,10 +304,25 @@ namespace sliver.AccessQueryAnalyzer
 			this.tabControl.SelectedTab = page;
 		}
 
-		private string GetDefaultTabTitle()
+		private int GetNextTabIndex()
 		{
-			string t = string.Format("Query {0}", this.nextTabIndex);
-			this.nextTabIndex++;
+			var maxIndex = 0;
+
+			foreach (TabPage page in this.tabControl.TabPages)
+			{
+				if (page.Controls[0] is QueryControl qc)
+				{
+					if (qc.Id > maxIndex)
+						maxIndex = qc.Id;
+				}
+			}
+
+			return maxIndex+1;
+		}
+
+		private string GetDefaultTabTitle(int index)
+		{
+			string t = string.Format("Query {0}", index);
 			return t;
 		}
 
@@ -334,13 +347,7 @@ namespace sliver.AccessQueryAnalyzer
 
 			try
 			{
-				string fn = view.FileName;
-				if (!string.IsNullOrEmpty(fn))
-				{
-					string name = Path.GetFileName(fn);
-					if (!string.IsNullOrEmpty(name))
-						page.Text = name;
-				}
+				page.Text = view.TabTitle;
 			}
 			catch
 			{
@@ -416,6 +423,9 @@ namespace sliver.AccessQueryAnalyzer
 			{
 				try
 				{
+					if (page.Controls[0] is QueryControl queryControl)
+						queryControl.SaveSettings();
+
 					page.Controls[0].Dispose();
 				}
 				catch
