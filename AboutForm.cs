@@ -56,79 +56,79 @@ namespace sliver
 			// 
 			// lblAuthor
 			// 
-			this.lblAuthor.Location = new System.Drawing.Point(64, 48);
+			this.lblAuthor.Location = new System.Drawing.Point(90, 58);
 			this.lblAuthor.Name = "lblAuthor";
-			this.lblAuthor.Size = new System.Drawing.Size(204, 16);
+			this.lblAuthor.Size = new System.Drawing.Size(285, 20);
 			this.lblAuthor.TabIndex = 0;
 			this.lblAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAuthor_LinkClicked);
 			// 
 			// lblCompany
 			// 
-			this.lblCompany.Location = new System.Drawing.Point(64, 64);
+			this.lblCompany.Location = new System.Drawing.Point(90, 78);
 			this.lblCompany.Name = "lblCompany";
-			this.lblCompany.Size = new System.Drawing.Size(204, 16);
+			this.lblCompany.Size = new System.Drawing.Size(285, 19);
 			this.lblCompany.TabIndex = 1;
 			this.lblCompany.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
 			// 
 			// lblVersion
 			// 
-			this.lblVersion.Location = new System.Drawing.Point(64, 32);
+			this.lblVersion.Location = new System.Drawing.Point(90, 39);
 			this.lblVersion.Name = "lblVersion";
-			this.lblVersion.Size = new System.Drawing.Size(212, 16);
+			this.lblVersion.Size = new System.Drawing.Size(296, 19);
 			this.lblVersion.TabIndex = 2;
 			// 
 			// lblCopyright
 			// 
-			this.lblCopyright.Location = new System.Drawing.Point(64, 80);
+			this.lblCopyright.Location = new System.Drawing.Point(90, 97);
 			this.lblCopyright.Name = "lblCopyright";
-			this.lblCopyright.Size = new System.Drawing.Size(208, 16);
+			this.lblCopyright.Size = new System.Drawing.Size(291, 20);
 			this.lblCopyright.TabIndex = 3;
 			// 
 			// lblDisclaimer
 			// 
-			this.lblDisclaimer.Location = new System.Drawing.Point(64, 96);
+			this.lblDisclaimer.Location = new System.Drawing.Point(90, 117);
 			this.lblDisclaimer.Name = "lblDisclaimer";
-			this.lblDisclaimer.Size = new System.Drawing.Size(200, 16);
+			this.lblDisclaimer.Size = new System.Drawing.Size(280, 19);
 			this.lblDisclaimer.TabIndex = 3;
 			// 
 			// cmdOK
 			// 
-			this.cmdOK.Anchor = (System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right);
+			this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.cmdOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.cmdOK.Location = new System.Drawing.Point(184, 116);
+			this.cmdOK.Location = new System.Drawing.Point(282, 164);
 			this.cmdOK.Name = "cmdOK";
+			this.cmdOK.Size = new System.Drawing.Size(105, 28);
 			this.cmdOK.TabIndex = 4;
 			this.cmdOK.Text = "OK";
 			this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
 			// 
 			// panel1
 			// 
-			this.panel1.Location = new System.Drawing.Point(16, 16);
+			this.panel1.Location = new System.Drawing.Point(22, 19);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(32, 32);
+			this.panel1.Size = new System.Drawing.Size(45, 39);
 			this.panel1.TabIndex = 5;
 			// 
 			// lblTitle
 			// 
-			this.lblTitle.Location = new System.Drawing.Point(64, 16);
+			this.lblTitle.Location = new System.Drawing.Point(90, 19);
 			this.lblTitle.Name = "lblTitle";
-			this.lblTitle.Size = new System.Drawing.Size(212, 16);
+			this.lblTitle.Size = new System.Drawing.Size(296, 20);
 			this.lblTitle.TabIndex = 2;
 			// 
 			// AboutForm
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 14);
-			this.ClientSize = new System.Drawing.Size(270, 148);
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.panel1,
-																		  this.cmdOK,
-																		  this.lblCopyright,
-																		  this.lblVersion,
-																		  this.lblCompany,
-																		  this.lblAuthor,
-																		  this.lblDisclaimer,
-																		  this.lblTitle});
-			this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
+			this.AutoScaleBaseSize = new System.Drawing.Size(7, 17);
+			this.ClientSize = new System.Drawing.Size(402, 203);
+			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.cmdOK);
+			this.Controls.Add(this.lblCopyright);
+			this.Controls.Add(this.lblVersion);
+			this.Controls.Add(this.lblCompany);
+			this.Controls.Add(this.lblAuthor);
+			this.Controls.Add(this.lblDisclaimer);
+			this.Controls.Add(this.lblTitle);
+			this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
