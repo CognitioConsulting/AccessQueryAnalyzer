@@ -146,10 +146,12 @@ namespace sliver.AccessQueryAnalyzer
 			// Fix for DataTime now showing full date and time - reset the column formatting when the data source changes
 			foreach(DataGridViewColumn column in dg.Columns)
 			{
-				if (column.ValueType == typeof(DateTime))
-				{
+				if (column.ValueType == typeof(DateTime) || column.ValueType == typeof(DateTime?))
 					column.DefaultCellStyle.Format = "yyyy-MM-dd HH:mm:ss.fff";
-				}
+				else if (column.ValueType.IsPrimitive || column.ValueType == typeof(decimal) || column.ValueType == typeof(decimal?))
+					column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+				column.DefaultCellStyle.NullValue = "(null)";
 			}
 
 			if (DataSourceChanged_ != null)
